@@ -34,7 +34,10 @@ const HomePage = () => {
     return (
         <div className='max-w-6xl mx-auto p-6 m-2 bg-custom-lightBlue'>
             <h1 className="text-3xl font-bold text-custom-blue text-center p-4">PUBLICACIONES</h1>
-            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <div className="bg-white p-4 rounded-lg shadow-md mb-4">
+                <h3 className='text-xl font-semibold text-center mb-2'>¿Desea realizar una búsqueda?</h3>
+                <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            </div>
             {/*<PostList posts={filteredPosts} />     */}
             <PostList posts={currentPosts} />
             <Pagination 
