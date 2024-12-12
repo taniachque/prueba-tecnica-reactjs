@@ -32,8 +32,8 @@ const HomePage = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-        <div>
-            <h1>Publicaciones</h1>
+        <div className='max-w-6xl mx-auto p-6 m-2 bg-custom-lightBlue'>
+            <h1 className="text-3xl font-bold text-custom-blue text-center p-4">PUBLICACIONES</h1>
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             {/*<PostList posts={filteredPosts} />     */}
             <PostList posts={currentPosts} />

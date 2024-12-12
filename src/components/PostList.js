@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const PostList = ({ posts }) => {
     return (
-        <ul>
+        <ul className='space-y-8'>
             {posts.map(post => (
-                <li key={post.id}>
+                <li key={post.id} className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
                     <Link to={`/posts/${post.id}`}>
-                        <h2>{post.title}</h2>
+                        <h2 className='font-bold'>{post.title}</h2>
                     </Link>
                     <p>{post.body}</p>
                 </li>

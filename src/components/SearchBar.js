@@ -5,7 +5,7 @@ const SearchBar = ({ searchTerm, setSearchTerm }) => {
         <input 
             type="text" 
             placeholder="Buscar por título o contenido" 
-            className="border p-2 my-4"
+            className="border p-2 my-6"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)} 
         />
