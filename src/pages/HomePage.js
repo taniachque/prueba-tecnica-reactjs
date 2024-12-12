@@ -7,6 +7,8 @@ import Pagination from '../components/Pagination';
 const HomePage = () => {
     const [posts, setPosts] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(10);
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -22,11 +24,25 @@ const HomePage = () => {
         post.body.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    // Lógica para paginación
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
     return (
         <div>
             <h1>Publicaciones</h1>
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-            <PostList posts={filteredPosts} /> 
+            {/*<PostList posts={filteredPosts} />     */}
+            <PostList posts={currentPosts} />
+            <Pagination 
+                postsPerPage={postsPerPage} 
+                totalPosts={filteredPosts.length} // Total filtrado
+                paginate={paginate} 
+                currentPage={currentPage} 
+            />
         </div>
     );
 };
