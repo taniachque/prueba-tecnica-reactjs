@@ -6,6 +6,7 @@ import Pagination from '../components/Pagination';
 
 const HomePage = () => {
     const [posts, setPosts] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -15,11 +16,17 @@ const HomePage = () => {
         fetchPosts();
     }, []);
 
+    // SearchBar
+    const filteredPosts = posts.filter(post => 
+        post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        post.body.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
         <div>
             <h1>Publicaciones</h1>
-            {/* Aquí se mostrará la barra de búsqueda más adelante */}
-            <PostList posts={posts} />
+            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <PostList posts={filteredPosts} /> 
         </div>
     );
 };
