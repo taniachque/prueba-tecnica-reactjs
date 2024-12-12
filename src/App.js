@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import PostDetails from './components/PostDetails'; // Asegúrate de tener este componente
+import PostDetails from './components/PostDetails';
 
 const App = () => {
     return (
